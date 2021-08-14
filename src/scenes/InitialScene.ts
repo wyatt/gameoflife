@@ -19,9 +19,9 @@ export default class InitialScene extends Phaser.Scene {
 	}
 
 	create(): void {
-		this.cells = [...Array(52)]
+		this.cells = [...Array(this.sys.game.canvas.width / 10)]
 			.map((_item, x) => {
-				return [...Array(38)].map((_item, y) => {
+				return [...Array(this.sys.game.canvas.height / 10)].map((_item, y) => {
 					return [x, y];
 				});
 			})
@@ -68,6 +68,9 @@ export default class InitialScene extends Phaser.Scene {
 				if (!(liveNeighbours.length === 2 || liveNeighbours.length === 3)) {
 					cell.sprite.destroy();
 					return {x: cell.x, y: cell.y, alive: false};
+				} else if (cell.x > 50 || cell.y > 36) {
+					cell.sprite.destroy();
+					return {x: cell.x, y: cell.y, alive: false};
 				}
 			} else {
 				if (liveNeighbours.length === 3) {
@@ -83,6 +86,5 @@ export default class InitialScene extends Phaser.Scene {
 			}
 			return cell;
 		});
-		console.log(this.cells);
 	}
 }
