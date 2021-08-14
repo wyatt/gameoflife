@@ -6,25 +6,36 @@ body {
 	height: 100%;
 	width: 100%;
 	font-family: 'Press Start 2P', monospace;
-	line-height: 20px;
+	line-height: 1.4em;
 }
 
 main {
 	display: flex;
 	min-height: 100vh;
-	width: 70%;
-	max-width: 800px;
-	flex-direction: column;
+	width: 100%;
+	max-width: 1500px;
+	flex-direction: row;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
 	box-sizing: border-box;
-
 	margin: auto;
+	padding: 0 10px;
+}
+
+h1 {
+	line-height: 1em;
 }
 
 #phaser-container {
 	width: 100%;
+	max-width: 800px;
+}
+
+#text {
+	max-width: 650px;
+	padding-right: 50px;
+	min-width: 400px;
 }
 
 #links {
@@ -34,10 +45,13 @@ main {
 	margin: 0 10px;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1366px) {
 	main {
 		width: 100%;
 		font-size: 15px;
-		padding: 0 10px;
+		flex-direction: column;
+	}
+	#text {
+		padding: 0;
 	}
 }

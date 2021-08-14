@@ -6,6 +6,5 @@
   "singleQuote": true,
   "quoteProps": "consistent",
   "arrowParens": "avoid",
-  "semi": true,
-  "htmlWhitespaceSensitivity":  "ignore"
+  "semi": true
 }
