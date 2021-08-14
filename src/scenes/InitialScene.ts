@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import {gospherGliderGun} from '../presets';
+import Color = Phaser.Display.Color;
 
 type CellType =
 	| {
@@ -18,9 +19,9 @@ export default class InitialScene extends Phaser.Scene {
 	}
 
 	create(): void {
-		this.cells = [...Array(50)]
+		this.cells = [...Array(52)]
 			.map((_item, x) => {
-				return [...Array(36)].map((_item, y) => {
+				return [...Array(38)].map((_item, y) => {
 					return [x, y];
 				});
 			})
@@ -35,20 +36,19 @@ export default class InitialScene extends Phaser.Scene {
 					alive,
 					...(alive && {
 						sprite: this.add
-							.rectangle(x * 10, y * 10, 10, 10, 0xf44336)
+							.rectangle(x * 10, y * 10, 10, 10, 0xf2aa4c)
 							.setOrigin(0, 0),
 					}),
 				} as CellType;
 			});
-
-		this.time.addEvent({
-			delay: 200,
-			callback: this.generation.bind(this),
-			loop: true,
-		});
+		this.cameras.main.setSize(500, 360);
+		this.cameras.main.x = 10;
+		this.cameras.main.y = 10;
+		this.cameras.main.transparent = false;
+		this.cameras.main.backgroundColor = new Color(16, 16, 32);
 	}
 
-	generation(): void {
+	update(): void {
 		const currentCells = this.cells;
 		this.cells = currentCells.map(cell => {
 			const liveNeighbours = currentCells.filter(neighbour => {
@@ -76,12 +76,13 @@ export default class InitialScene extends Phaser.Scene {
 						y: cell.y,
 						alive: true,
 						sprite: this.add
-							.rectangle(cell.x * 10, cell.y * 10, 10, 10, 0xf44336)
+							.rectangle(cell.x * 10, cell.y * 10, 10, 10, 0xf2aa4c)
 							.setOrigin(0, 0),
 					};
 				}
 			}
 			return cell;
 		});
+		console.log(this.cells);
 	}
 }
