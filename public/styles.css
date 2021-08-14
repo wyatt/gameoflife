@@ -2,24 +2,24 @@
 
 html,
 body {
-	margin: 0;
+	margin: 0 auto;
 	height: 100%;
 	width: 100%;
 	font-family: 'Press Start 2P', monospace;
 }
 
-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 main {
 	display: flex;
+	min-height: 100vh;
+	width: 70%;
+	max-width: 800px;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	text-align: center;
-	width: clamp(200px, 50%, 800px);
+	box-sizing: border-box;
+
+	margin: auto;
 }
 
 #phaser-container {
@@ -31,4 +31,12 @@ main {
 }
 #links > a {
 	margin: 0 10px;
+}
+
+@media only screen and (max-width: 768px) {
+	main {
+		width: 100%;
+		font-size: 15px;
+		padding: 0 10px;
+	}
 }
