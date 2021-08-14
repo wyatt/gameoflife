@@ -11,7 +11,7 @@ Demo: [gameoflife-omega.vercel.app](https://gameoflife-omega.vercel.app/)
 
 ### Run yourself
 1. Install dependencies with `yarn`
-2. Build with `yarn build` and then deploy the `_build` folder. You can also just simply run the project with the command `yarn start`
+2. Build with `yarn build` and then deploy the `_build/` folder. You can also just simply run the project with the command `yarn start`
 
 ### Acknowledgements
 Templated from [phaser3-ts-snowpack-eslint](https://github.com/pawap90/phaser3-ts-snowpack-eslint). Super easy to get started with, but the ESLint config is too strict for my taste.
